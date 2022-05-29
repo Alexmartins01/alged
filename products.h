@@ -19,7 +19,7 @@ void set_next(products ps,products next);
 
 products create_products();
 
-int remove_products(int id, products* ps, int i);
+products remove_products(int id, products ps, int i);
 
 PRODUCT search_product(int id, products ps,int i);
 

@@ -53,7 +53,7 @@ int ui(){
 
     products ps = create_products();
 
-    print_menu();    
+    print_menu();
 
     while(fgets(buf, 32, stdin) && strncmp(buf,"-q",2)!=0){
 
@@ -76,8 +76,8 @@ int ui(){
 
 
             int id = atoi(token);
-            
-            remove_products(id, &ps,i);
+
+            ps = remove_products(id, ps, i);
             i--;
 
             perror("product removed");

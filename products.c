@@ -76,34 +76,23 @@ int insertProduct (products* l, PRODUCT x,int i) {
     
 }
 
-int remove_products(int id, products* ps, int i){
-    products p = *ps,b;
+products remove_products(int id, products ps, int i){
 
-    if(get_id(get_product(p))==id){
-        if(i==1) p = NULL;
-        if(i==2) {
-            p=p->next;
-            p->next = NULL;
-            
-            return 1;
-        }
-        b=p->next;
-        p->next=b->next;
+    products p = create_products();
+    int x = 0;
 
-        return 1;
+    while(i>0){
+        if(get_id(get_product(ps))!=id){
+            insertProduct(&p, get_product(ps),x);
+            x++;
+        } 
+
+        ps = get_next(ps);
+        i--;
     }
 
-    while(get_id(p->next->product)!=id && p->next->next){
-        p=p->next;
-    }
-    if(!p->next->next) return -1;
-    if(p){
-        b=p->next;
-        p->next=b->next;
-        return 1;
-    }
+    return p;
 
-    return 0;
 }
 
 PRODUCT search_product(int id, products ps,int i){
